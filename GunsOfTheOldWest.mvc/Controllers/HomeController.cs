@@ -12,10 +12,8 @@ namespace GunsOfTheOldWest.mvc.Controllers
         public HomeController(Kogels kogel)
         {
             kogels = kogel;
-            
         }
         
-   
         public IActionResult Index()
         {
            
@@ -30,21 +28,27 @@ namespace GunsOfTheOldWest.mvc.Controllers
         {
             kogels.Reset();
 
-            var speler = new Speler(voornaam, naam, email, telefoon);
-            return View("Samenvatting", speler);
+            if (!string.IsNullOrEmpty(voornaam)&& !string.IsNullOrEmpty(naam) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(telefoon))
+            {
+                var speler = new Speler(voornaam, naam, email, telefoon);
+                return View("Samenvatting", speler);
+            }
+
+            return View("Winnaar");
         }
         
         public IActionResult Schiet()
         {
             if (kogels.aantalKogels > 0)
             {
+                kogels.Schiet();
                 if (Random() < 4)
                 {
+
                     return View("Winnaar");
                 }
                 else
                 {
-                    kogels.Schiet();
                     return View("Index", kogels);
                 }
             }
@@ -52,8 +56,6 @@ namespace GunsOfTheOldWest.mvc.Controllers
             {
                 return View("Kopen");
             }
-            
-            
         }
        
         public IActionResult Kopen(int aantal)
@@ -61,10 +63,7 @@ namespace GunsOfTheOldWest.mvc.Controllers
             kogels.Kopen(aantal);
             return View("Index", kogels);
         }
-
-
-
-
+        
         public int Random()
         {
             Random random = new Random();
