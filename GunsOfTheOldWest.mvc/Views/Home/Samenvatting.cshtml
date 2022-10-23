@@ -2,20 +2,19 @@
 
 @{
 }
-<h1>Samenvatting</h1>
-<!--  hetzelfde als in Index.cshtml) -->
-
 
 <div class="card text-center">
+    <div class="card-header">Samenvatting</div>
     <div class="card-body">
         <h5 class="card-title">Winnaar</h5>
         <p class="card-text">Voornaam: @Model.voornaam </p>
         <p class="card-text">Naam: @Model.naam </p>
         <p class="card-text">Email: @Model.email</p>
         <p class="card-text">Telly: @Model.telefoon</p>
-        <a asp-action="Index"><button class="knopke">Terug naar start</button></a>
+        <a asp-action="Index"><button class="btn-primary">Terug naar start</button></a>
     </div>
     <div class="card-footer text-muted">
         @Model.Date
     </div>
+    <p>&copy; Auteur|Deny</p>
 </div>
