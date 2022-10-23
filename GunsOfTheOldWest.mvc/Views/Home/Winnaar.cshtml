@@ -1,0 +1,24 @@
+﻿@model Speler
+@{
+}
+<h1>Scherpschutter!</h1>
+<form>
+    <div class="form-group">
+        <label asp-for="voornaam">Voornaam</label>
+        <input asp-for="voornaam" class="form-control"placeholder="Geef je voornaam">
+    </div>
+    <div class="form-group">
+        <label asp-for="naam">Naam</label>
+        <input asp-for="naam" class="form-control" placeholder="Geef je naam">
+    </div>
+    <div class="form-group">
+        <label asp-for="email">Email</label>
+        <input asp-for="email" class="form-control" placeholder="Geef je email">
+    </div>
+    <div class="form-group">
+        <label asp-for="telefoon">Telefoonnummer</label>
+        <input asp-for="telefoon" class="form-control" placeholder="Geef je telefoonnummer">
+    </div>
+    <button asp-action="Versturen"  class="btn btn-primary">Versturen</button>
+    <button asp-action="Index"  class="btn btn-primary">Terug</button>
+</form>

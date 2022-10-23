@@ -1,0 +1,12 @@
+﻿@model Kogels
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<h1>Guns of the Old West</h1>
+<div class="text-center">
+    <!--  <button asp-action="Schiet" class="knopke">Schiet!</button>  (waarom dit niet werkt) -->
+
+    <a asp-action="Schiet"><button class="knopke">Schiet!</button></a>
+    <p>nog @Model.aantalKogels kogels</p>
+</div>
