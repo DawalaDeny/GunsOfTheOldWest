@@ -26,10 +26,9 @@ namespace GunsOfTheOldWest.mvc.Controllers
         }
         public IActionResult Versturen(string voornaam, string naam, string email, string telefoon)
         {
-            kogels.Reset();
-
             if (!string.IsNullOrEmpty(voornaam)&& !string.IsNullOrEmpty(naam) && !string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(telefoon))
             {
+                kogels.Reset();
                 var speler = new Speler(voornaam, naam, email, telefoon);
                 return View("Samenvatting", speler);
             }
